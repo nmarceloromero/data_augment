@@ -5,7 +5,7 @@ Library for augmenting datasets for machine learning projects.
 # Features
 - Balance dataset through data augmentation
 - Augment dataset sequentially and in parallel
-- Transformations: cropping, rotation, swirl, random noises, vertical and horizontal flip
+- Transformations: cropping, rotation, random noises, vertical and horizontal flip
 
 # Requirements
 - Python == 2.7

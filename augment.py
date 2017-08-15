@@ -50,15 +50,7 @@ def apply_random_noise(image):
 	noise_mode.append('pepper')
 	noise_mode.append('s&p')
 	noise_mode.append('speckle')
-	return skimage.util.random_noise(image, mode=noise_mode[i])
-
-def apply_random_swirl(image):
-	'''
-	Parameters:
-		image: NumPy array of size NxMxC
-	'''
-	i = rn.random()
-	return skimage.transform.swirl(image, strength=i)
+	return skimage.util.random_noise(image, mode=noise_mode[i]) * 255
 
 def apply_random_cropping(image):
 	'''
@@ -101,7 +93,6 @@ def apply_random_transformations(image):
 		image: NumPy array of size NxMxC
 	'''
 	image = apply_random_noise(image)
-	image = apply_random_swirl(image)
 	image = apply_random_cropping(image)
 	image = apply_random_vertical_flip(image)
 	image = apply_random_horizontal_flip(image)
