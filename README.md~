@@ -12,4 +12,3 @@ Library for augmenting datasets for machine learning projects.
 - NumPy >= 1.9
 - Scikit Image >= 0.12.3
 - SciPy >= 0.19.1
-- Parallel Python >= 1.6.5

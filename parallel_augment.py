@@ -33,7 +33,6 @@ def get_pp_template(num_cpus=1, servers_list=('localhost',)):
 							func       	= augment_single_data_one_hot,
 							depfuncs	= (	apply_random_transformations,
 										apply_random_noise,
-										apply_random_swirl,
 										apply_random_cropping,
 										apply_random_vertical_flip,
 										apply_random_horizontal_flip,
