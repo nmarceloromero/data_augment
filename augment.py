@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: latin-1 -*-
 # -------------------------- IMPORTS -------------------------- #
 import numpy  as np
 import random as rn
@@ -44,13 +43,13 @@ def apply_random_noise(image):
 	Parameters:
 		image: NumPy array of size NxMxC
 	'''
-	i = rn.randint(0,3)
 	noise_mode = []
-	noise_mode.append('gaussian')
 	noise_mode.append('pepper')
 	noise_mode.append('s&p')
-	noise_mode.append('speckle')
-	return skimage.util.random_noise(image, mode=noise_mode[i]) * 255
+	noise_mode.append('salt')
+	#noise_mode.append('speckle')
+	#noise_mode.append('gaussian')
+	return (skimage.util.random_noise(image, mode=noise_mode[rn.randint(0,len(noise_mode)-1)]) * 255).astype(np.uint8)
 
 def apply_random_cropping(image):
 	'''
@@ -92,7 +91,7 @@ def apply_random_transformations(image):
 	Parameters:
 		image: NumPy array of size NxMxC
 	'''
-	image = apply_random_noise(image)
+	image = apply_random_noise((image/255.0).astype(float))
 	image = apply_random_cropping(image)
 	image = apply_random_vertical_flip(image)
 	image = apply_random_horizontal_flip(image)

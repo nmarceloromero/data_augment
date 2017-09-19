@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: latin-1 -*-
+
 # ----------------------- IMPORTS ----------------------- #
 import numpy as np
 from augment import *
@@ -54,7 +54,6 @@ def augment_dataset_parallel(dataset, labels, template, num_aug):
 	while (i < labels.shape[0]):
 		jobs = []
 		for c in range(template.job_server.get_ncpus()):
-			print 'Augmenting sample ', i, '...'
 			jobs.append(template.submit(dataset[i,:,:,:], labels[i,:], num_aug))
 			i += 1
 			if (i == labels.shape[0]):
